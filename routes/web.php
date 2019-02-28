@@ -22,7 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /* Route for users */
 Route::Group(['prefix' => 'user'], function() {
-    Route::get('profile','UserController@userProfile');
+    Route::get('profile','UserController@userProfile')->name('userProfile');
 });
+
 
 /* i can use middleware('verified') this is exclusive for email verified. */
