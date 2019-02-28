@@ -10,8 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//App::setLocale('tw-zh');
 
-Route::get('/', function () {
+Route::get('lang/{lang}', 'LanguageController@switchLang')
+    ->name('lang.switch');
+
+Route::get('/', function($locale = null)
+{
     return view('welcome');
 });
 
@@ -19,11 +24,14 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+    Route::Group(['prefix' => 'user'], function() {
+        Route::get('profile','UserController@userProfile')->name('userProfile');
+});
+
+
 
 /* Route for users */
-Route::Group(['prefix' => 'user'], function() {
-    Route::get('profile','UserController@userProfile')->name('userProfile');
-});
+
 
 
 /* i can use middleware('verified') this is exclusive for email verified. */
