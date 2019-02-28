@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarsExample06">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a href="blogPost" class="nav-link">Laravel討論區</a>
+                <a href="discuss" class="nav-link">@lang('user.discuss')</a>
             </li>
             <li class="nav-item">
-                <a href="blogPost" class="nav-link">關於我</a>
+                <a href="aboutMe" class="nav-link">@lang('user.aboutMe')</a>
             </li>
             <li class="nav-item">
-                <a href="blogPost" class="nav-link">技術文章</a>
+                <a href="blogPost" class="nav-link">@lang('user.blogPost')</a>
             </li>
         </ul>
 
@@ -21,13 +21,25 @@
       <ul class="navbar-nav ml-auto">
         @guest
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="nav-link" href="{{ route('login') }}">{{ __('user.login') }}</a>
         </li>
         @if (Route::has('register'))
             <li class="nav-item mr-4">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link" href="{{ route('register') }}">{{ __('user.register') }}</a>
             </li>
         @endif
+        <li class="dropdown">
+                <a href="#" class="dropdown-toggle btn btn-primary mr-4" data-toggle="dropdown">
+                    {{ Config::get('languages')[App::getLocale()] }}
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if ($lang != App::getLocale())
+                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
+                        @endif
+                    @endforeach
+                </ul>
+            </li>
         @else
         <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -47,7 +59,7 @@
 
             <a class="dropdown-item" href="{{ route('userProfile') }}"
             onclick="event.preventDefault();">
-            {{ __('profile') }}
+            {{ __('passwords.profile') }}
         </a>
         </div>
         </li>
