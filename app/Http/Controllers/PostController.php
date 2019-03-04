@@ -23,7 +23,8 @@ class PostController extends Controller
         //$post = DB::table('posts')->paginate(5);
 
         $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
-            return view('post.index',['posts' => $posts]);
+        
+        return view('post.index',['posts' => $posts]);
   
     }
 
@@ -57,8 +58,8 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        $post = Post::find($id);
-        return view('post.show', $post);
+        $post = Post::findOrFail($id);
+        return view('post.show', ['post' => $post]);
     }
 
     /**

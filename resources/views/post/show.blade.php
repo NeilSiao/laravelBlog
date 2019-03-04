@@ -1,29 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="my_container">
+
+<div class="my_container">
+        
     <div id="left">
-        <div class="outer">
-            <header>
-                <img src="{{asset('images/dog.jpg')}}" alt=""> 
-            </header>
-            <div>
-                <h3> im a Coder.</h3>
-                <p>美夢成真</p>
-            </div>
-        </div>
+        <header>
+            <img src="{{asset('images/dog.jpg')}}" alt=""> 
+            <h2>蕭瑞文</h2>
+        </header>
+            <section>
+                <h3> Im a Coder.Im a CoderIm a CoderIm a CoderIm a CoderIm a Coder</h3>
+                <p>美夢成真美夢成真美夢成真美夢成真美夢成真美夢成真</p>
+            </section>
     </div>
+    
 
     <div id="right">
-        <div id="userDetail">
-            <img src="{{asset('images/dog.jpg')}}" alt="">
-            <div>
-                <div id="author"><span>NeilSiao<a class="icon-home3" href="#"></a></span>
+        <div class="userDetail">
+            <div class="img_block">
+                <img id="user_head" src="{{asset('images/dog.jpg')}}" alt="">
+            </div>
+            <div class="desc_block">
+                <div class="author">
+                    <span>{{$post->user->name}}
+                        <a class="icon-home3" href="#"></a>
+                    </span>
                 </div>
-                <div id="note"><span>3貼文</span><span>comments</span></div>
+                <div id="note">
+                    <span>{{$post->user->posts()->count()}}貼文 </span><span>0comments</span>
+                </div>
             </div>
         </div>
-        <div id="content">
+
+        <div class="content">
+            {{$post->content}}
+
 
             <div id="content_footer">
 
@@ -38,6 +50,6 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="{{asset("css/show.css")}}">
+  <link rel="stylesheet" href="{{asset("css/show.css")}}">
   <link rel="stylesheet" href="{{asset("css/icomoon/style.css")}}">
-    @endsection
+@endsection

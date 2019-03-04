@@ -22,7 +22,7 @@ Route::get('/', function($locale = null)
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('home');
 
     Route::Group(['prefix' => 'user'], function() {
         Route::get('profile','UserController@userProfile')->name('userProfile');
