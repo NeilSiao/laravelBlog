@@ -4,29 +4,26 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class AddPostTableForUser extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
-
-     
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        //
+        Schema::create('posts', function (Blueprint $table){
             $table->charset = 'utf8';	
             $table->collation = 'utf8_unicode_ci';
-            	
-            $table->bigIncrements('id');
-            $table->string('name', 50);
-            $table->string('user_img', 200);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password', 120);
-            $table->rememberToken();
+
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('title', 120);
+            $table->text('content');
+            $table->string('post_img', 200);
+            //comment id don't need, comment will find this
             $table->timestamps();
         });
     }
@@ -38,6 +35,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
+        Schema::drop('posts');
     }
 }

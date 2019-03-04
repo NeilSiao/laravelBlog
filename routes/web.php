@@ -28,7 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
         Route::get('profile','UserController@userProfile')->name('userProfile');
 });
 
-
+Route::group(['prefix'=>'blogPost'], function(){
+    Route::resource('Post','PostController');
+});
 
 /* Route for users */
 
