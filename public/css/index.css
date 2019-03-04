@@ -5,17 +5,19 @@ body {
 
 #container {
   display: flex;
+  justify-content: center;
   margin-top: 10px;
 }
 
-@media screen and (min-width: 736px) {
+@media screen and (min-width: 779px) {
   #container {
     margin: 15px;
   }
 }
 
 #container #aside {
-  flex: 1;
+  width: 30%;
+  height: 100%;
   margin-right: 10px;
   background-color: aliceblue;
   border-radius: 15px;
@@ -24,18 +26,14 @@ body {
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 779px) {
   #container #aside {
     margin: 15px;
     display: none;
   }
 }
 
-#container #aside div {
-  height: calc(100% - 45px);
-}
-
-#container #aside div ul {
+#container #aside ul {
   padding: 0px;
   display: flex;
   flex-direction: column;
@@ -43,39 +41,39 @@ body {
   height: 100%;
 }
 
-#container #aside div ul li {
+#container #aside ul li {
   flex: 1;
   list-style-type: none;
   padding: 10px;
 }
 
 @media screen and (max-width: 736px) {
-  #container #aside div ul li {
+  #container #aside ul li {
     padding: 0;
   }
 }
 
-#container #aside div ul li img {
+#container #aside ul li img {
   width: 40px;
   height: 40px;
   line-height: 100%;
   border-radius: 100%;
 }
 
-#container #aside div ul li #img_logo {
+#container #aside ul li #img_logo {
   display: inline-block;
   width: 40px;
-  height: 100%;
+  height: 40px;
 }
 
-#container #aside div ul li #news {
+#container #aside ul li #news {
   display: inline-block;
   vertical-align: top;
-  width: 250px -45px;
+  width: 200px -45px;
   height: 100%;
 }
 
-#container #aside div ul li #news a {
+#container #aside ul li #news a {
   width: 120px;
   display: block;
   overflow: hidden;
@@ -83,16 +81,16 @@ body {
   text-overflow: ellipsis;
 }
 
-#container #aside div ul li #news span {
+#container #aside ul li #news span {
   font-size: 13px;
 }
 
-#container #aside div ul li #news span::after {
+#container #aside ul li #news span::after {
   content: "-";
   margin: 0 2px 0 2px;
 }
 
-#container #aside div ul li #news small {
+#container #aside ul li #news small {
   font-size: 10px;
 }
 
@@ -102,11 +100,12 @@ body {
   border-radius: 15px;
   box-shadow: #e6e6e6 5px 5px 15px;
   max-height: 250px;
-  flex: 2;
-  flex-direction: row;
+  max-width: 400px;
+  flex: 1;
   overflow: hidden;
   padding: 15px;
   background-color: aliceblue;
+  margin: 10px;
 }
 
 #container #menu #post_logo {
@@ -145,5 +144,10 @@ body {
 #container #menu #post_text small {
   font-size: 0.875rem;
   display: block;
+}
+
+.outer {
+  display: flex;
+  flex-flow: column wrap;
 }
 

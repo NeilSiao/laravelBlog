@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -17,8 +18,13 @@ class PostController extends Controller
     public function index()
     {
         //
-        $users = User::All();
-        return view('post.index', $users);
+        //$posts = Post::with('user')->take(5)->get();
+
+        //$post = DB::table('posts')->paginate(5);
+
+        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
+            return view('post.index',['posts' => $posts]);
+  
     }
 
     /**
@@ -48,14 +54,11 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
-        $user = $post->user();
-        $user_id = $user->id;
-        $user_name = $user->name;
-        $user_img = $user->user_img;
-        return view('post.show', $user);
+        $post = Post::find($id);
+        return view('post.show', $post);
     }
 
     /**
