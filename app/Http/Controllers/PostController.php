@@ -6,6 +6,7 @@ use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -36,6 +37,11 @@ class PostController extends Controller
     public function create()
     {
         //
+        if(Auth::user()){
+            return view('post.create');
+        }else{
+            return Redirect()->back();
+        }
     }
 
     /**

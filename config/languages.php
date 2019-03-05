@@ -2,7 +2,7 @@
 
 return [
     'en' => 'English',
-    'tw-zh' => '中文',
+    'zh-tw' => '中文',
 ];
 
 ?>

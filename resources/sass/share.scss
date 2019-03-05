@@ -1,0 +1,21 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(241, 243, 245);
+    font-size: 16px;
+}
+
+@mixin circle_logo ($width, $height, $radius) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+}
+
+@mixin card_background() {
+    border: 1px solid #e6e6e6;
+    box-shadow: #e6e6e6 5px;
+}
+
+@mixin textarea() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

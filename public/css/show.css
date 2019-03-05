@@ -11,9 +11,9 @@ body {
   margin: 25px;
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (max-width: 660px) {
   .my_container {
-    margin: 3px;
+    margin: 5px;
   }
 }
 
@@ -60,10 +60,12 @@ body {
 
 .my_container #right {
   width: 70%;
-  min-height: 300px;
+}
+
+.my_container #right article {
   padding: 15px;
   box-shadow: #e6e6e6 10px 10px 15px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #cecaca;
   border-radius: 5px;
 }
 
@@ -112,5 +114,31 @@ body {
 .content {
   word-wrap: break-word;
   word-break: break-all;
+}
+
+#comments {
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: #e6e6e6 10px 10px 15px;
+  border: 1px solid #cecaca;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  display: flex;
+}
+
+#comments img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+#comments div {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+#comments div span {
+  flex: 1;
 }
 

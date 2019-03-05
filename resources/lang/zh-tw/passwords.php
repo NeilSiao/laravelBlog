@@ -27,4 +27,5 @@ return [
     'user' => "我們無法找到與E-mail相符的使用者.",
     'Logout' => "登出帳戶",
     'profile' => "使用者帳戶",
+    'dashboard' => "貼文管理",
 ];

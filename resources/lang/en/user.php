@@ -2,7 +2,7 @@
     return [
         'login' => "Login",
         'register' => "Register",
-        'aboutMe' => "About Me",
+        'aboutSite' => "About WebSite",
         'discuss' => "Laravel Discuss",
         'blogPost' => "Tech Post"
     ];

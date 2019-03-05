@@ -10,10 +10,10 @@
                 <a href="discuss" class="nav-link">@lang('user.discuss')</a>
             </li>
             <li class="nav-item">
-                <a href="aboutMe" class="nav-link">@lang('user.aboutMe')</a>
+                <a href="blogPost" class="nav-link">@lang('user.blogPost')</a>
             </li>
             <li class="nav-item">
-                <a href="blogPost" class="nav-link">@lang('user.blogPost')</a>
+                    <a href="aboutMe" class="nav-link">@lang('user.aboutSite')</a>
             </li>
         </ul>
 
@@ -28,18 +28,7 @@
                 <a class="nav-link" href="{{ route('register') }}">{{ __('user.register') }}</a>
             </li>
         @endif
-        <li class="dropdown">
-                <a href="#" class="dropdown-toggle btn btn-primary mr-4" data-toggle="dropdown">
-                    {{ Config::get('languages')[App::getLocale()] }}
-                </a>
-                <ul class="dropdown-menu">
-                    @foreach (Config::get('languages') as $lang => $language)
-                        @if ($lang != App::getLocale())
-                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
-                        @endif
-                    @endforeach
-                </ul>
-            </li>
+
         @else
         <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -47,23 +36,38 @@
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('passwords.Logout') }}
-            </a>
-
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-
-            <a class="dropdown-item" href="{{ route('userProfile') }}"
-            onclick="event.preventDefault();">
-            {{ __('passwords.profile') }}
+            {{-- user profile --}}
+        <a class="dropdown-item" href="{{ route('userProfile') }}">
+        {{ __('passwords.profile') }}
         </a>
+            
+        <a class="dropdown-item" href="{{ route('home') }}">
+        {{ __('passwords.dashboard') }}
+
+        <a class="dropdown-item" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        {{ __('passwords.Logout') }}
+    </a>
+    </a>
         </div>
         </li>
     @endguest
+    <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-primary mr-4" data-toggle="dropdown">
+                {{ Config::get('languages')[App::getLocale()] }}
+            </a>
+            <ul class="dropdown-menu">
+                @foreach (Config::get('languages') as $lang => $language)
+                    @if ($lang != App::getLocale())
+                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
+                    @endif
+                @endforeach
+            </ul>
+    </li>
       </ul>
     </div>
   </nav>

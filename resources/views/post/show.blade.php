@@ -17,6 +17,7 @@
     
 
     <div id="right">
+        <article>
         <div class="userDetail">
             <div class="img_block">
                 <img id="user_head" src="{{asset('images/dog.jpg')}}" alt="">
@@ -36,17 +37,25 @@
         <div class="content">
             {{$post->content}}
 
-
             <div id="content_footer">
 
             </div>
         </div>
-
-        <div id="comments">
-
+        </article>
+        <div id="comments"> 
+        <img src="{{asset('images/dog.jpg')}}" alt="">
+        <div>
+            <span>NeilSiao</span>
+            <span>好文推推，果然是大師之作</span>
+        </div>    
+            
         </div>
+
     <div>
+            
 </div>
+
+
 @endsection
 
 @section('style')

@@ -1,0 +1,52 @@
+@import 'share';
+
+.card-body {
+    display: flex;
+    flex-flow: column wrap;
+    +header a{
+        font-size: 1.5rem;
+    }
+    >ul {
+        padding: 15px 0 0 0;
+        border-top: 1px dotted black;
+
+        li {
+            list-style: none;
+            padding: 5px;
+            display: flex;
+            @include card_background();
+
+            .user_desc {
+                text-align: center;
+                margin-top: auto;
+                margin-bottom:auto;
+                width: 15%;
+                margin-right: 10px;
+
+                img {
+                    @include circle_logo(40px, 40px, 100%);
+                }
+            }
+
+            .content {
+                max-height: 250px;
+                >a {
+                    text-decoration: none;
+                    &:hover{
+                        color:darken(blue, 10);
+                    }
+                    p {
+                        max-width: 300px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        flex: 1;
+                        margin-bottom: 3px;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

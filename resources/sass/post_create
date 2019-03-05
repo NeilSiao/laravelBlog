@@ -1,0 +1,13 @@
+.outer{
+    display: flex;
+    flex-flow: row;
+    .left{
+        flex:1;
+        label {
+            display: block;
+        }
+    }
+    .right{
+        flex:1;
+    }
+}

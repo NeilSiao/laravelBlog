@@ -96,9 +96,9 @@ body {
 
 #container #menu {
   border: 1px solid #b3b3b3;
-  overflow: hidden;
   border-radius: 15px;
   box-shadow: #e6e6e6 5px 5px 15px;
+  overflow: hidden;
   max-height: 250px;
   max-width: 400px;
   flex: 1;
