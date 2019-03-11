@@ -100,12 +100,15 @@ body {
   box-shadow: #e6e6e6 5px 5px 15px;
   overflow: hidden;
   max-height: 250px;
-  max-width: 400px;
-  flex: 1;
+  width: 70%;
   overflow: hidden;
   padding: 15px;
   background-color: aliceblue;
   margin: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-flow: row;
 }
 
 #container #menu #post_logo {
@@ -114,11 +117,9 @@ body {
 
 #container #menu #post_logo img {
   display: inline-block;
-  width: 50%;
+  width: 100%;
   max-height: 120px;
   margin: auto auto;
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
 }
 
 #container #menu #post_text {
@@ -129,6 +130,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 #container #menu #post_text h5 img {
@@ -149,5 +151,7 @@ body {
 .outer {
   display: flex;
   flex-flow: column wrap;
+  justify-content: space-around;
+  width: 70%;
 }
 

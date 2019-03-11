@@ -7,7 +7,6 @@
         <div id='aside'>
             <div style="font-size:1.5rem;text-align:center;height:45px;">
                 最新消息
-                
             </div>
             <div>
                <ul>
@@ -20,12 +19,12 @@
                             <div id="news">
                             <a href="">{{$post->title}}</a>
                             <span>{{$post->user->name}}</span> 
-                             <small>{{$post->updated_at}}</small>
-                        @endforeach
+                            <small>{{$post->updated_at}}</small>
+                    @endforeach
                            @else
                            <span>Dont have any posts</span>
                            @endif
-                    </div>
+                            </div>
                 </li>
                </ul>
                <div>
@@ -45,7 +44,7 @@
                     </div>
                 <div id="post_text">
                     <h5>
-                    <img src="{{$post->user->user_img}}" alt="">
+                    <img src="{{ $post->user->user_img }}" alt="">
                         <span>
                             {{$post->user->name}}
                         <a href="/profile/{{$post->user->id}}" class="icon-home3"></a>

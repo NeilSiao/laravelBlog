@@ -20,11 +20,14 @@
                 text-align: center;
                 margin-top: auto;
                 margin-bottom:auto;
-                width: 15%;
+                width: 20%;
                 margin-right: 10px;
 
                 img {
                     @include circle_logo(40px, 40px, 100%);
+                }
+                span{
+                    display:block;
                 }
             }
 

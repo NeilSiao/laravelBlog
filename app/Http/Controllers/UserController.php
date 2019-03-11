@@ -2,12 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Cloudinary;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     //
-    public function userProfile(){
-        return 'here is user profiles';
+    public function userProfile(Request $requset){
+        $user = Auth::user();
+        return view('userProfile')->with(array('user' => $user));
+    }
+    
+    public function userUpdate(Request $request){
+        $user = Auth::user();
+        $user =User::findorFail($user->id);
+
+        $user->name = $request->input('name');
+        $user->desc = $request->input('desc');
+        $user->byword = $request->input('byword');
+
+        if($request->hasfile('image')){
+            $image = $request->file('image');
+            $path = $image->getRealPath();
+            \Cloudinary::config(array(
+                "cloud_name" => "dzjdn589g",
+                "api_key" => "913728663371981",
+                "api_secret" => "YdkY6SmwMXswvXpgjfjG9dCik6A"
+            ));
+            
+             $data = \Cloudinary\Uploader::upload($path, array(
+                 "folder" => "posts_img/",
+                )); 
+            $user->user_img = $data['secure_url'];
+        }
+        $user->save();
+        
+        return redirect('/dashboard');
     }
 }

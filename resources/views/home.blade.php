@@ -21,37 +21,26 @@
                         <ul>
 
                             {{-- post start --}}
-
+                            @if($user->Exists() && (count($posts) > 0))
+                            @foreach ($posts as $post)
+                                
                             <li>
                                 <div class="user_desc">
-                                    <img src=" {{asset('images/dog.jpg')}} " alt="">
-                                    <span>NeilSiao</span>
+                                    <img src=" {{$user->user_img}} " alt="">
+                                    <span>{{$user->name}}</span>
                                 </div>
                                 <div class="content">
-                                    <header><a href="">title</a> </header>
-                                    <a href="">
+                                <header><a href="">{{$post->title}}</a> </header>
+                                <a href="{{url("/blogPost/Post/$post->id")}}">
                                         <p>
-                                            contentNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSia
+                                            {{$post->content}}
                                         </p>
                                     </a>
-                                    <small>2019/03/05</small>
+                                    <small>{{$post->updated_at}}</small>
                                 </div>
                             </li>
-                            <li>
-                                    <div class="user_desc">
-                                        <img src=" {{asset('images/dog.jpg')}} " alt="">
-                                        <span>NeilSiao</span>
-                                    </div>
-                                    <div class="content">
-                                        <header><a href="">title</a> </header>
-                                        <a href="">
-                                            <p>
-                                                contentNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSiaNeilSia
-                                            </p>
-                                        </a>
-                                        <small>2019/03/05</small>
-                                    </div>
-                                </li>
+                            @endforeach
+                            @endif
                             {{-- post end --}}
 
                         </ul>

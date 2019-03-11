@@ -9,7 +9,9 @@
                  <a href="blogPost/Post" class="btn btn-outline-light">Go to Blog</a>            
                 </div>        
         </div> 
+        
 </section>
+
 
 @endsection
 

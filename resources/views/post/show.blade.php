@@ -6,12 +6,12 @@
         
     <div id="left">
         <header>
-            <img src="{{asset('images/dog.jpg')}}" alt=""> 
-            <h2>蕭瑞文</h2>
+            <img src="{{$post->user->user_img}}" alt=""> 
+            <h2> {{$post->user->name}} </h2>
         </header>
             <section>
-                <h3> Im a Coder.Im a CoderIm a CoderIm a CoderIm a CoderIm a Coder</h3>
-                <p>美夢成真美夢成真美夢成真美夢成真美夢成真美夢成真</p>
+                <h3> {{$post->user->byword}}</h3>
+                <p>{{$post->user->desc}}</p>
             </section>
     </div>
     
@@ -20,7 +20,7 @@
         <article>
         <div class="userDetail">
             <div class="img_block">
-                <img id="user_head" src="{{asset('images/dog.jpg')}}" alt="">
+                <img id="user_head" src="{{$post->user->user_img}}" alt="">
             </div>
             <div class="desc_block">
                 <div class="author">

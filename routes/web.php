@@ -24,16 +24,26 @@ Auth::routes(['verify' => true]);
 
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
-    Route::Group(['prefix' => 'user'], function() {
+Route::Group(['prefix' => 'user'], function() {
         Route::get('profile','UserController@userProfile')->name('userProfile');
+        Route::post('profile','UserController@userUpdate')->name('userUpdate');
+        
 });
 
 Route::group(['prefix'=>'blogPost'], function(){
     Route::resource('Post','PostController');
-});
+}); 
+
+Route::get('/Json', 'PostController@only_returnJson');
+
 
 /* Route for users */
-
+/* Route::get('/ecomic/stock', 'PostController@index');
+Route::get('/ecomic/stock/edit/{id}', 'PostController@edit');
+Route::post('/where/post', 'PostController@ProcessPost'); */
+//update where id = client_id
+//http:localhost.com/test
+//http:yahoo.com/ecomice/stock
 
 
 /* i can use middleware('verified') this is exclusive for email verified. */

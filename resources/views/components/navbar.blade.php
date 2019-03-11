@@ -6,14 +6,14 @@
   
     <div class="collapse navbar-collapse" id="navbarsExample06">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+         {{--    <li class="nav-item">
                 <a href="discuss" class="nav-link">@lang('user.discuss')</a>
+            </li> --}}
+            <li class="nav-item">
+                <a href="{{ url('blogPost/Post') }}" class="nav-link">@lang('user.blogPost')</a>
             </li>
             <li class="nav-item">
-                <a href="blogPost" class="nav-link">@lang('user.blogPost')</a>
-            </li>
-            <li class="nav-item">
-                    <a href="aboutMe" class="nav-link">@lang('user.aboutSite')</a>
+            <a href="{{url('/')}}" class="nav-link">@lang('user.aboutSite')</a>
             </li>
         </ul>
 
