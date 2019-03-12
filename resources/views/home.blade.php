@@ -30,7 +30,9 @@
                                     <span>{{$user->name}}</span>
                                 </div>
                                 <div class="content">
-                                <header><a href="">{{$post->title}}</a> </header>
+                                <header><a href="{{url("/blogPost/Post/$post->id")}}">
+                                    {{$post->title}}</a>
+                                </header>
                                 <a href="{{url("/blogPost/Post/$post->id")}}">
                                         <p>
                                             {{$post->content}}

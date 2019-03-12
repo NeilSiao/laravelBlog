@@ -42,6 +42,7 @@
             </div>
         </div>
         </article>
+        {{-- comment start --}}
         <div id="comments"> 
         <img src="{{asset('images/dog.jpg')}}" alt="">
         <div>
@@ -50,11 +51,19 @@
         </div>    
             
         </div>
-
+        {{-- comment end --}}
+        <div class="form-group mt-4">
+            <label for="comment">留言區</label>
+            <textarea name="comment" id="comment" cols="12" rows="5" class="form-control mr-4"></textarea>
+            <button type="text" class="btn btn-primary btn-lg float-right mr-4 mt-2">送出</button>
+        </div>
     <div>
             
 </div>
 
+<script>
+
+</script>
 
 @endsection
 

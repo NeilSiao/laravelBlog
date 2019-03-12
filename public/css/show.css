@@ -142,3 +142,7 @@ body {
   flex: 1;
 }
 
+.light {
+  color: white !important;
+}
+

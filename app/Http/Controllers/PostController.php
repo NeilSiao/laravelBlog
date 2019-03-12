@@ -9,25 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostStoreRequest;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
-
-
-
-    public function only_returnJson(){
-        //https:   token encrypt;
-        //client with token
-        /* server check token*/
-        /* token is okay*/
-        /* return response()->json(['name' => 'Abigail', 'state' => 'CA']);
-        /*    //db select, api token 
-        /* token not valid
-         return 'error' */
-         return view('constant');
-    }
-
 
     /**
      * Display a listing of the resource.
@@ -39,7 +25,14 @@ class PostController extends Controller
         //$posts = Post::with('user')->take(5)->get();
        // $post = DB::table('posts')->paginate(5);
         $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
-        return view('post.index',['posts' => $posts]);
+
+        if(Session::has('latest')){
+            $latest = Session::get('latest');
+        }else{    
+            $latest = POST::orderBy('created_at', 'desc')->take(3)->get();
+        }
+        
+        return view('post.index',['posts' => $posts, 'latest' => $latest]);
  
         /* return view('post.index'); */
     }
@@ -67,22 +60,22 @@ class PostController extends Controller
 
     public function store(PostStoreRequest $request)
     {
-       
+
+        $user = Auth::user();
+        $post = new Post();
         $validated = $request->validated();
         $title = $validated['title'];
         $content = $validated['content'];
-        if($validated['image']->isValid()){
-            $image = $validated['image'];
-        }else{
-            return 'image is invalid';
-        }
 
-        $path = $image->getRealPath();
+        if($request->hasFile('image') && $validated['image']->isValid()){
+            $image = $validated['image'];
+
+            $path = $image->getRealPath();
             \Cloudinary::config(array(
             "cloud_name" => "dzjdn589g",
             "api_key" => "913728663371981",
             "api_secret" => "YdkY6SmwMXswvXpgjfjG9dCik6A"
-        ));
+            ));
         
          $data = \Cloudinary\Uploader::upload($path, array(
              "folder" => "posts_img/",
@@ -90,11 +83,11 @@ class PostController extends Controller
              "height" => "200",
             )); 
 
-        $user = Auth::user();
-        $post = new Post();
+            $post->post_img = $data['secure_url'];
+        }
+    
         $post->title = $title;
         $post->content = $content;
-        $post->post_img = $data['secure_url'];
         $post->user_id = $user->id;
         $post->save();
        
