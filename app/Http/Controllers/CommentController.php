@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
@@ -33,8 +36,20 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request,$post_id)
     {
+
+        $comment = new Comment();
+        $user = Auth::user();
+        $post = Post::findorFail($post_id);
+        
+        $comment->user_id = $user->id;
+        $comment->post_id = $post->id;
+
+        $request->validated();
+
+        $comment->comment = $request['comment'];
+        $comment->save();
         
     }
 
