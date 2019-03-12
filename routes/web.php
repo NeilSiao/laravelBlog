@@ -34,7 +34,7 @@ Route::group(['prefix'=>'blogPost'], function(){
     Route::resource('Post','PostController');
 }); 
 
-Route::get('/Json', 'PostController@only_returnJson');
+Route::post('/comment/{post_id}','CommentController@store');
 
 
 /* Route for users */

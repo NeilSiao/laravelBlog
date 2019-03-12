@@ -116,7 +116,7 @@ body {
   word-break: break-all;
 }
 
-.comments {
+#comments .comments {
   padding: 15px;
   margin-top: 15px;
   box-shadow: #e6e6e6 10px 10px 15px;
@@ -126,23 +126,19 @@ body {
   display: flex;
 }
 
-.comments img {
+#comments .comments .logo_img {
   width: 40px;
   height: 40px;
   border-radius: 100%;
   margin-right: 10px;
 }
 
-.comments div {
+#comments .comments div {
   display: flex;
   flex-flow: column wrap;
 }
 
-.comments div span {
+#comments .comments div span {
   flex: 1;
-}
-
-.light {
-  color: white !important;
 }
 

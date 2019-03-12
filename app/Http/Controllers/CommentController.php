@@ -38,7 +38,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request,$post_id)
     {
-
+        try {
         $comment = new Comment();
         $user = Auth::user();
         $post = Post::findorFail($post_id);
@@ -50,7 +50,12 @@ class CommentController extends Controller
 
         $comment->comment = $request['comment'];
         $comment->save();
+
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
         
+        return 'post success';
     }
 
     /**

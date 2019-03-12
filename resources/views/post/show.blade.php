@@ -18,7 +18,7 @@
     
 
     <div id="right">
-        <article>
+        <article id="article">
         <div class="userDetail">
             <div class="img_block">
                 <img id="user_head" src="{{$post->user->user_img}}" alt="">
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="content">
+        <div id="content" class="content">
             {{$post->content}}
 
             <div id="content_footer">
@@ -43,22 +43,27 @@
             </div>
         </div>
         </article>
+        <div id="comments">
+
+
+        </div>
         {{-- comment start --}}
-        <div class="comments"> 
+        {{-- <div class="comments"> 
         <img src="{{asset('images/dog.jpg')}}" alt="">
         <div>
             <span>NeilSiao</span>
             <span>好文推推，果然是大師之作</span>
         </div>    
             
-        </div>
+        </div> --}}
         {{-- comment end --}}
         @Auth
         <div class="form-group mt-4">
+        <form action="{{url("/comment/{$post->id}")}}"></form>
                 <label for="comment">留言區</label>
-                <textarea v-model="comment" id="comment" cols="12" rows="5" class="form-control mr-4"></textarea>
-                <button type="text" class="btn btn-primary btn-lg float-right mr-4 mt-2">送出</button>
-              </div>
+                <textarea name="comment" id="user_comment" cols="12" rows="5" class="form-control mr-4"></textarea>
+                <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">送出</button>
+        </div>
         @endAuth
         @guest
         <div class="comments">
@@ -74,7 +79,30 @@
 </div>
 
 <script>
+function sendComment($post_id){
+    let comment = document.getElementById('user_comment');
 
+    let content = $('#comments');
+    content.append('<div class="comments">\
+        <img class="logo_img" src="https://res.cloudinary.com/dzjdn589g/image/upload/v1552376383/posts_img/dog.jpg" alt="">\
+        <div><span>NeilSiao</span>\
+        <span>' + user_comment.value +'</span>\
+    </div>');
+
+        
+   /*  axios.post('/comment/' + $post_id)
+    .then(function (response){
+        
+    })
+    .catch(function (error){
+
+    })
+    .then(function (){
+
+    }); */
+    user_comment.value="";
+}
+ 
 </script>
 
 @endsection
