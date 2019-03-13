@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{Session::forget('intended')}}
 <div class="container">
     <div class="row justify-content-center mt-2">
         <div class="col-md-8">

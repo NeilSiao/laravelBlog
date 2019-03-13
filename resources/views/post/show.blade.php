@@ -71,7 +71,7 @@
        
         </div>
         {{-- direct to current --}}
-        {{Session::put('intented', "/blogPost/Post/{$post->id}" )}}
+        {{Session::put('intended', "/blogPost/Post/{$post->id}" )}}
 
         @endguest
     <div>

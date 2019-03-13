@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+{{Session::forget('intended')}}
 <section>
         <div class="header bg-full bg-cover bg-fixed d-flex justify-content-center align-items-center">
                 <div class="text-center text-white">
