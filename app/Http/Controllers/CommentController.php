@@ -38,6 +38,10 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request,$post_id)
     {
+        if(!Auth::check()){
+            return 'unAuthrized';
+        }
+
         try {
         $comment = new Comment();
         $user = Auth::user();
@@ -55,7 +59,8 @@ class CommentController extends Controller
             return $th->getMessage();
         }
         
-        return 'post success';
+        return response()
+                ->json(['status' => 'success','user' => $user, 'comment'=> $comment]);
     }
 
     /**

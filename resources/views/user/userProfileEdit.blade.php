@@ -15,7 +15,7 @@
 
             <div class="formControl">
                 <label for="textarea">User Description</label>
-                <textarea id="textarea" name="desc" class="form-control" rows="6" cols="10">{{$user->desc}}</textarea>
+                <textarea id="textarea" name="user_desc" class="form-control" rows="6" cols="10">{{$user->user_desc}}</textarea>
             </div>
 
             <div class="formControl">

@@ -15,8 +15,8 @@ class AddUserPersonalprofileColumnString extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->string('byword', 120);
-            $table->text('desc');
+            $table->string('byword', 120)->nullable();
+            $table->text('user_desc')->nullable();
         });
     }
 

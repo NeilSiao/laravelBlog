@@ -30,15 +30,23 @@
                                     <span>{{$user->name}}</span>
                                 </div>
                                 <div class="content">
-                                <header><a href="{{url("/blogPost/Post/$post->id")}}">
+                                <header><a href="{{url("/blogPost/Post/{$post->id}")}}">
                                     {{$post->title}}</a>
                                 </header>
-                                <a href="{{url("/blogPost/Post/$post->id")}}">
+                                <a href="{{url("/blogPost/Post/{$post->id}")}}">
                                         <p>
-                                            {{$post->content}}
+                                            {{substr($post->content, 0, 15)}}
                                         </p>
                                     </a>
                                     <small>{{$post->updated_at}}</small>
+                                </div>
+                                <div class="btn_block">
+                                <a href="{{url("/blogPost/Post/{$post->id}/edit")}}" class="btn btn-warning">編輯</a>
+                                <form action="{{url("/blogPost/Post/{$post->id}")}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete post.');"value="刪除"></a>
+                                </form>    
                                 </div>
                             </li>
                             @endforeach

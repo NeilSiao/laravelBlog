@@ -12,7 +12,7 @@
         </header>
             <section>
                 <h3> {{$post->user->byword}}</h3>
-                <p>{{$post->user->desc}}</p>
+                <p>{{$post->user->user_desc}}</p>
             </section>
     </div>
     
@@ -26,11 +26,11 @@
             <div class="desc_block">
                 <div class="author">
                     <span>{{$post->user->name}}
-                        <a class="icon-home3" href="#"></a>
+                        <a class="icon-home3" href="{{url("/profile/{$post->user->id}")}}"></a>
                     </span>
                 </div>
                 <div id="note">
-                    <span>{{$post->user->posts()->count()}}貼文 </span><span>0comments</span>
+                    <span>{{$post->user->posts()->count()}}貼文 </span><span>{{count($post->comment)}}comments</span>
                 </div>
             </div>
         </div>
@@ -44,8 +44,18 @@
         </div>
         </article>
         <div id="comments">
-
-
+            @if(count($comments) > 0)
+            @foreach($comments as $comment)
+            <div class="comments">
+            <img class="logo_img" src="{{$comment->user->user_img}}" alt="">
+            <div>
+            <span>{{$comment->user->name}}</span>
+            <span class="user_comment">{{$comment->comment}}</span>
+            <small> {{$comment->created_at}} </small>
+            </div>     
+            </div>
+            @endforeach
+            @endif
         </div>
         {{-- comment start --}}
         {{-- <div class="comments"> 
@@ -59,14 +69,12 @@
         {{-- comment end --}}
         @Auth
         <div class="form-group mt-4">
-        <form action="{{url("/comment/{$post->id}")}}"></form>
                 <label for="comment">留言區</label>
                 <textarea name="comment" id="user_comment" cols="12" rows="5" class="form-control mr-4"></textarea>
                 <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">送出</button>
-        </div>
         @endAuth
         @guest
-        <div class="comments">
+        <div class="comments mt-4 ml-2">
         <a href="/login">登入後留言</a>
        
         </div>
@@ -80,27 +88,31 @@
 
 <script>
 function sendComment($post_id){
-    let comment = document.getElementById('user_comment');
+    var user_comment = document.getElementById('user_comment');
 
-    let content = $('#comments');
-    content.append('<div class="comments">\
-        <img class="logo_img" src="https://res.cloudinary.com/dzjdn589g/image/upload/v1552376383/posts_img/dog.jpg" alt="">\
-        <div><span>NeilSiao</span>\
-        <span>' + user_comment.value +'</span>\
-    </div>');
-
-        
-   /*  axios.post('/comment/' + $post_id)
+    var content = $('#comments');
+    
+     axios.post('/comment/' + $post_id, {
+         comment: user_comment.value
+     })
     .then(function (response){
-        
+        let user = response.data.user;
+        let comment = response.data.comment;
+        content.append('<div class="comments">\
+        <img class="logo_img" src="'+ user.user_img +'" alt="">\
+        <div><span>' + user.name + '</span>\
+        <span class="user_comment">' + user_comment.value +'</span>\
+        <small>' + comment.created_at + '</small>\
+        </div>');
+
+        user_comment.value="";
     })
     .catch(function (error){
 
+        console.log(error);
     })
-    .then(function (){
 
-    }); */
-    user_comment.value="";
+    
 }
  
 </script>

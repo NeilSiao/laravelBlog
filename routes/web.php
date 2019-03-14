@@ -36,6 +36,7 @@ Route::group(['prefix'=>'blogPost'], function(){
 
 Route::post('/comment/{post_id}','CommentController@store');
 
+Route::get('/profile/{user_id}', 'UserController@show');
 
 /* Route for users */
 /* Route::get('/ecomic/stock', 'PostController@index');

@@ -12,7 +12,7 @@ class UserController extends Controller
     //
     public function userProfile(Request $requset){
         $user = Auth::user();
-        return view('userProfile')->with(array('user' => $user));
+        return view('user.userProfileEdit')->with(array('user' => $user));
     }
     
     public function userUpdate(Request $request){
@@ -20,7 +20,7 @@ class UserController extends Controller
         $user =User::findorFail($user->id);
 
         $user->name = $request->input('name');
-        $user->desc = $request->input('desc');
+        $user->user_desc = $request->input('user_desc');
         $user->byword = $request->input('byword');
 
         if($request->hasfile('image')){
@@ -40,5 +40,11 @@ class UserController extends Controller
         $user->save();
         
         return redirect('/dashboard');
+    }
+
+    public function show($user_id){
+        $user = User::findorFail($user_id);
+        
+        return view('user.userProfileShow')->with(['user' => $user]);
     }
 }

@@ -26,7 +26,7 @@ class PostStoreRequest extends FormRequest
         return [
             'title' =>'required',
             'content' => 'required',
-            'image' => 'image | max:16348',
+            'image' => 'nullable|image|max:16348',
         ];
     }
 }

@@ -49180,6 +49180,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/userProfileShow.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/userProfileShow.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/welcome.scss":
 /*!*************************************!*\
   !*** ./resources/sass/welcome.scss ***!
@@ -49192,9 +49203,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/index.scss ./resources/sass/show.scss ./resources/sass/home.scss ./resources/sass/create.scss ***!
-  \**********************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/index.scss ./resources/sass/show.scss ./resources/sass/home.scss ./resources/sass/create.scss ./resources/sass/userProfileShow.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49204,7 +49215,8 @@ __webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\welcome.scss */".
 __webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\index.scss */"./resources/sass/index.scss");
 __webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\show.scss */"./resources/sass/show.scss");
 __webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\home.scss */"./resources/sass/home.scss");
-module.exports = __webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\create.scss */"./resources/sass/create.scss");
+__webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\create.scss */"./resources/sass/create.scss");
+module.exports = __webpack_require__(/*! E:\HashiCorp\resumeBlog\resources\sass\userProfileShow.scss */"./resources/sass/userProfileShow.scss");
 
 
 /***/ })
