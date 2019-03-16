@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span style="display:inline-block; font-size:1.5rem;">Dashboard</span>
-                    <a href="{{url('blogPost/Post/create')}}" class="btn btn-primary" style="float:right;">Create Post</a>
+                    <span style="display:inline-block; font-size:1.5rem;">@lang('view.dashboard')</span>
+                    <a href="{{url('blogPost/Post/create')}}" class="btn btn-primary" style="float:right;">@lang('view.createPost')</a>
                 </div>
 
                 <div class="card-body">
@@ -17,7 +17,7 @@
                         </div>
                     @endif
 
-                    <h2>Your posts</h2>
+                    <h2>@lang('view.posts')</h2>
                         <ul>
 
                             {{-- post start --}}
@@ -41,11 +41,11 @@
                                     <small>{{$post->updated_at}}</small>
                                 </div>
                                 <div class="btn_block">
-                                <a href="{{url("/blogPost/Post/{$post->id}/edit")}}" class="btn btn-warning">編輯</a>
+                                <a href="{{url("/blogPost/Post/{$post->id}/edit")}}" class="btn btn-warning">@lang('view.edit')</a>
                                 <form action="{{url("/blogPost/Post/{$post->id}")}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete post.');"value="刪除"></a>
+                                    <input type="submit" class="btn btn-danger" onclick="return confirm('@lang('view.confirm')');"value="@lang('view.delete')"></a>
                                 </form>    
                                 </div>
                             </li>

@@ -6,7 +6,7 @@
   
         <div id='aside'>
             <div style="font-size:1.5rem;text-align:center;height:45px;">
-                最新消息
+                @lang('view.news')
             </div>
             <div>
                <ul>
