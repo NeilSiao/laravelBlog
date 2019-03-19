@@ -20,3 +20,13 @@
   min-height: 100vh;
 }
 
+#typeit {
+  font-size: 2.25rem;
+}
+
+@media screen and (max-width: 480px) {
+  #typeit {
+    font-size: 1.5rem;
+  }
+}
+

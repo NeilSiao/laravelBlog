@@ -3,7 +3,7 @@
         'confirm' => 'Are you sure you want to delete the post ?',
         'edit' => 'Edit',
         'delete' => 'Delete',
-        'welcomeDesc' => 'Here is a open place for laraveler to talk',
+        'welcomeDesc' => 'A Place for Sharing Knowledge',
         'welcome' => 'Welcome to MixN',
         'join' => 'Join Us',
         'blog' => 'Go to Blog',

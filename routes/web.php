@@ -37,7 +37,13 @@ Route::group(['prefix'=>'blogPost'], function(){
 Route::post('/comment/{post_id}','CommentController@store');
 
 Route::get('/profile/{user_id}', 'UserController@show');
+Route::get('/welcomeStr', function (){
+    return [__('view.welcome'), __('view.welcomeDesc')];
+});
 
+Route::get('cookie/{cookie}', function($cookie){
+    return 'cookie' . $cookie;
+});
 /* Route for users */
 /* Route::get('/ecomic/stock', 'PostController@index');
 Route::get('/ecomic/stock/edit/{id}', 'PostController@edit');

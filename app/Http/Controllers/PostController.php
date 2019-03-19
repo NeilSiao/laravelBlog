@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
 
-
     public function __construct(){
+
+        $this->middleware('auth',['except' => ['index', 'show']]);
+
             \Cloudinary::config(array(
             "cloud_name" => "dzjdn589g",
             "api_key" => "913728663371981",

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function __constrcut(){
+        $this->middleware('auth');
+    }
     //
     public function userProfile(Request $requset){
         $user = Auth::user();
