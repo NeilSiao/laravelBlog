@@ -30,7 +30,7 @@
                     </span>
                 </div>
                 <div id="note">
-                    <span>{{$post->user->posts()->count()}}貼文 </span><span>{{count($post->comment)}}comments</span>
+                    <span>{{$post->user->posts()->count()}}貼文 </span><span ><span id="commentnum">{{count($post->comment)}}</span> comments</span>
                 </div>
             </div>
         </div>
@@ -106,6 +106,11 @@ function sendComment($post_id){
         </div>');
 
         user_comment.value="";
+        
+        let cmtNum = document.getElementById('commentnum');
+        let tmp = Number(cmtNum.innerHTML.trim()) + 1;
+        cmtNum.innerHTML = tmp;
+        
     })
     .catch(function (error){
 

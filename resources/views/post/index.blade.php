@@ -54,12 +54,11 @@
                         </h5>
                     </div>
                 <div class="post_content">
-                    <a id="short_tag" href="/blogPost/Post/{{$post->id}}">
-                        {{$post->content}}
+                        <h5 class="title">{{$post->title}}</h5>  
+                    <a class="content"  href="/blogPost/Post/{{$post->id}}" >
+                        {{$post->content}}ssssssssssssssssssssssssssssssssssssssssssss
                     </a>
-                </div>        
-                <div class="post_time">
-                    <small> {{$post->created_at}} </small>
+                    <small id="short_tag" class="post_time"> {{$post->created_at}} </small>
                 </div>
             </div>
                 </div>
