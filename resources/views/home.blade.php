@@ -30,14 +30,10 @@
                                     <span>{{$user->name}}</span>
                                 </div>
                                 <div class="content">
-                                <header><a href="{{url("/blogPost/Post/{$post->id}")}}">
+                                <header style="font-size:1.5rem;"><a href="{{url("/blogPost/Post/{$post->id}")}}">
                                     {{$post->title}}</a>
                                 </header>
-                                <a href="{{url("/blogPost/Post/{$post->id}")}}">
-                                        <p>
-                                            {{substr($post->content, 0, 15)}}
-                                        </p>
-                                    </a>
+                                
                                     <small>{{$post->updated_at}}</small>
                                 </div>
                                 <div class="btn_block">

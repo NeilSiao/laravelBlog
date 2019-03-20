@@ -3,8 +3,8 @@
 
 @section('content')
 
+
 <div class="my_container">
-        
     <div id="left">
         <header>
             <img src="{{$post->user->user_img}}" alt=""> 
@@ -24,6 +24,7 @@
                 <img id="user_head" src="{{$post->user->user_img}}" alt="">
             </div>
             <div class="desc_block">
+                    <a href="{{URL::previous()}}" style="float:right;" class="btn btn-warning">@lang('view.back')</a>
                 <div class="author">
                     <span>{{$post->user->name}}
                         <a class="icon-home3" href="{{url("/profile/{$post->user->id}")}}"></a>
@@ -36,7 +37,7 @@
         </div>
 
         <div id="content" class="content">
-            {{$post->content}}
+            {!!$post->content!!}
 
             <div id="content_footer">
 
@@ -50,7 +51,7 @@
             <img class="logo_img" src="{{$comment->user->user_img}}" alt="">
             <div>
             <span>{{$comment->user->name}}</span>
-            <span class="user_comment">{{$comment->comment}}</span>
+            <span class="user_comment">{!!$comment->comment!!}</span>
             <small> {{$comment->created_at}} </small>
             </div>     
             </div>
@@ -70,7 +71,7 @@
         @Auth
         <div class="form-group mt-4">
                 <label for="comment">留言區</label>
-                <textarea name="comment" id="user_comment" cols="12" rows="5" class="form-control mr-4"></textarea>
+                <textarea name="comment" id="comment_area" cols="12" rows="5" class="form-control mr-4"></textarea>
                 <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">送出</button>
         @endAuth
         @guest
@@ -85,15 +86,20 @@
     <div>
             
 </div>
-
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+ var editor = CKEDITOR.replace('comment_area');
+</script>
 <script>
 function sendComment($post_id){
+    let data = editor.getData();
+
     var user_comment = document.getElementById('user_comment');
 
     var content = $('#comments');
     
      axios.post('/comment/' + $post_id, {
-         comment: user_comment.value
+         comment: data
      })
     .then(function (response){
         let user = response.data.user;
@@ -101,7 +107,7 @@ function sendComment($post_id){
         content.append('<div class="comments">\
         <img class="logo_img" src="'+ user.user_img +'" alt="">\
         <div><span>' + user.name + '</span>\
-        <span class="user_comment">' + user_comment.value +'</span>\
+        <span class="user_comment">' + data +'</span>\
         <small>' + comment.created_at + '</small>\
         </div>');
 
@@ -116,10 +122,7 @@ function sendComment($post_id){
 
         console.log(error);
     })
-
-    
 }
- 
 </script>
 
 @endsection

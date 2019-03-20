@@ -34,6 +34,10 @@
 </div>
 
 <script type="text/javascript" src="{{asset('js/postupdate.js')}}"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+ var editor = CKEDITOR.replace('content');
+</script>
 @endsection
  
 @section('style')
