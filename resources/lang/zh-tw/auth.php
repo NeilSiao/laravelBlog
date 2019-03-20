@@ -15,7 +15,7 @@ return [
 
     /* 'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.', */
-    'failed' => '輸入資料不符.',
+    'failed' => '輸入的Email或密碼不符.',
     'throttle' => '短時間內連續太多次登入嘗試，請稍後在試',
     'login' => '登入',
     'register' => '註冊',

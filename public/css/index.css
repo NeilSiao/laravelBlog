@@ -99,7 +99,7 @@ body {
   border-radius: 15px;
   box-shadow: #e6e6e6 5px 5px 15px;
   overflow: hidden;
-  max-height: 250px;
+  max-height: 280px;
   width: 19rem;
   overflow: hidden;
   background-color: aliceblue;
@@ -120,10 +120,10 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
   width: 19rem;
-  height: 10rem;
+  height: 20rem;
   display: flex;
   flex-flow: row;
 }
@@ -154,10 +154,25 @@ body {
 }
 
 #container #menu #post_text .right .post_content {
-  flex: 4;
+  flex: 5;
   height: 100%;
+  width: 100%;
   justify-self: flex-start;
   align-self: flex-start;
+  display: flex;
+  flex-flow: column;
+}
+
+#container #menu #post_text .right .post_content .title {
+  justify-self: flex-start;
+  align-self: start;
+}
+
+#container #menu #post_text .right .post_content .content {
+  justify-self: flex-start;
+  align-self: start;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 #container #menu #post_text .right .post_time {

@@ -106,8 +106,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
-        $comments = Comment::where('post_id' ,'=', $id)->get();
+        $post = Post::with('user')->findOrFail($id);
+        $comments = Comment::with('user')->where('post_id' ,'=', $id)->get();
         return view('post.show', ['post' => $post, 'comments' =>$comments]);
     }
 
