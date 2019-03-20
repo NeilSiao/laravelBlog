@@ -23,5 +23,7 @@
         'userByword' => '名言',
         'userDesc' => '個人背景',
         'submmit' => '送出',
+        'commentArea' => '留言區',
+        'loginToComment' => '留言，請登入',
     ]
 ?>

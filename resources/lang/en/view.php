@@ -23,5 +23,7 @@
         'userByword' => 'Byword',
         'userDesc' => 'User Description',
         'submmit' => 'Submit',
+        'commentArea' => 'Comments',
+        'loginToComment' => 'Login to leave a Comment',
     ]
 ?>

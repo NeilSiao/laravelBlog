@@ -169,10 +169,19 @@ body {
 }
 
 #container #menu #post_text .right .post_content .content {
-  justify-self: flex-start;
-  align-self: start;
-  text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-start;
+  width: 240px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: flex-start;
+}
+
+#container #menu #post_text .right .post_content .content > * {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #container #menu #post_text .right .post_time {
