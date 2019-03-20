@@ -6,7 +6,7 @@
                 <div class="text-center text-white" style="position:absolute; top:30%;">
                 <h3 id="typeit" ></h3>
 
-                <a href="login" class="btn btn-outline-warning">@lang('view.join')</a>
+                <a href="register" class="btn btn-outline-warning">@lang('view.join')</a>
                 <a href="blogPost/Post" class="btn btn-outline-light">@lang('view.blog')</a> 
         </div> 
       

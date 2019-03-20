@@ -3,14 +3,14 @@
 @section('content')
 
     <div id="container">
-  
+        @if(!$latest->isEmpty())
         <div id='aside'>
             <div style="font-size:1.5rem;text-align:center;height:45px;">
                 @lang('view.news')
             </div>
             <div>
                <ul>
-                    @if(!$latest->isEmpty())
+                   
                     @foreach ($latest as $post)
                    <li>
                             <div id="img_logo">
@@ -21,10 +21,8 @@
                             <span>{{$post->user->name}}</span> 
                             <small>{{$post->updated_at}}</small>
                     @endforeach
-                           @else
-                           <span>Dont have any posts</span>
-                           @endif
-                            </div>
+                    @endif
+                    </div>
                 </li>
                </ul>
                <div>
@@ -43,14 +41,10 @@
                         <img  src="{{$post->post_img}}" alt="">
                     </div>
                 <div id="post_text">
-
-                   
                     <div class="user_img">
                         <img src="{{ $post->user->user_img }}" alt="">
                     </div>
-                    <div class="right">
-
-                    
+                    <div class="right"> 
                     <div class="user_desc_top">
                     <h5>
                         <span>
@@ -74,7 +68,7 @@
      {{-- <!- menu container-!> --}}
      {{$posts->links()}}
     @else
-        <span>dont have any posts</span>
+        <h1 style="display:flex; justify-content:center; ">@lang('view.nopost')</h1>
     @endif
     </div>
     @endsection

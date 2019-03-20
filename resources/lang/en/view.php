@@ -17,5 +17,11 @@
         'back' => 'Go Back',
         'submit' => 'Submit',
         'file' => 'Choose File',
+        'nopost' => 'Don\'t have any Post Currently',
+        'userPhoto' => 'User Photo',
+        'userName' => 'Name',
+        'userByword' => 'Byword',
+        'userDesc' => 'User Description',
+        'submmit' => 'Submit',
     ]
 ?>
