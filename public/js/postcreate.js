@@ -1,4 +1,11 @@
+
+
+
 function sendForm () {
+  //ckeditor data from here
+  let ckContent = editor.getData();
+  /* console.log(data); */
+
     /* var output = document.getElementById('output'); */
     var hasFile = false;
     var progress = document.getElementById('progress');
@@ -7,11 +14,12 @@ function sendForm () {
     percent.innerHTML = 0 + '%';
 
     var notice = document.getElementById('notice');
-    let content = document.getElementById('content');
+    //let content = document.getElementById('content');
     let title = document.getElementById('title');
     var data = new FormData();
-    
-    data.append('content', content.value);
+    //replace with ckeditor 
+    data.append('content', ckContent);
+
     data.append('title', title.value);
     if(document.getElementById('file').files.length > 0){
         data.append('image', document.getElementById('file').files[0]);
@@ -49,4 +57,6 @@ function sendForm () {
       .then(function (){
         $("#notice").delay(5000).fadeOut();
       });
+
+      
   }

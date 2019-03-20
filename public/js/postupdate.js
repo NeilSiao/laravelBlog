@@ -1,5 +1,9 @@
 function sendForm ($post_id) {
     /* var output = document.getElementById('output'); */
+
+    //postupdate ckeditor
+    let ckContent = editor.getData();
+
     var hasFile = false;
     var progress = document.getElementById('progress');
     progress.value = 0;
@@ -11,7 +15,7 @@ function sendForm ($post_id) {
     let title = document.getElementById('title');
     var data = new FormData();
     
-    data.append('content', content.value);
+    data.append('content', ckContent);
     data.append('title', title.value);
     data.append('_method', 'PUT');
     if(document.getElementById('file').files.length > 0){

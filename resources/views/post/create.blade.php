@@ -11,6 +11,7 @@
         <label for="" style="font-size:1.5rem;">
             Title
         </label>
+        <a href="{{URL::previous()}}" style="float:right;" class="btn btn-warning">@lang('view.back')</a>
         <input class="form-control" name="title" id="title">
         <label for="" style="font-size:1.5rem;">
                     Content
@@ -31,7 +32,11 @@
 
 </div>
 
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="{{asset('js/postcreate.js')}}"></script>
+<script>
+ var editor = CKEDITOR.replace('content');
+</script>
 @endsection
  
 @section('style')
