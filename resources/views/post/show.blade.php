@@ -70,13 +70,14 @@
         {{-- comment end --}}
         @Auth
         <div class="form-group mt-4">
-                <label for="comment">留言區</label>
+                <label for="comment">@lang('view.commentArea')</label>
                 <textarea name="comment" id="comment_area" cols="12" rows="5" class="form-control mr-4"></textarea>
-                <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">送出</button>
+                <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">@lang('view.submit')
+                )</button>
         @endAuth
         @guest
         <div class="comments mt-4 ml-2">
-        <a href="/login">登入後留言</a>
+        <a href="/login">@lang('view.loginToComment')</a>
        
         </div>
         {{-- direct to current --}}

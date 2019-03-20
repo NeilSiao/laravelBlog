@@ -17,7 +17,7 @@
                                 <img src="{{$post->user->user_img}}" alt="">   
                             </div>
                             <div id="news">
-                            <a href="">{{$post->title}}</a>
+                            <a href="Post/{{$post->id}}">{{$post->title}}</a>
                             <span>{{$post->user->name}}</span> 
                             <small>{{$post->updated_at}}</small>
                     @endforeach
@@ -55,8 +55,8 @@
                     </div>
                 <div class="post_content">
                         <h5 class="title">{{$post->title}}</h5>  
-                    <a class="content"  href="/blogPost/Post/{{$post->id}}" >
-                        {{$post->content}}ssssssssssssssssssssssssssssssssssssssssssss
+                    <a class="content"  href="/blogPost/Post/{{$post->id}}">
+                        {!!$post->content!!}
                     </a>
                     <small id="short_tag" class="post_time"> {{$post->created_at}} </small>
                 </div>
