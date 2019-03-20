@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    use Illuminate\Routing\UrlGenerator;
     /**
      * Register any application services.
      *
@@ -29,9 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-     /* will casue some error
+       
       if(env('APP_ENV') != 'local'){
         $url->forceScheme('https');
-     } */
+     }
     }
 }
