@@ -17,5 +17,11 @@
         'back' => '返回',
         'submit' => '送出',
         'file' => '選擇檔案',
+        'nopost' => '目前沒有貼文',
+        'userPhoto' => '使用者照片',
+        'userName' => '姓名',
+        'userByword' => '名言',
+        'userDesc' => '個人背景',
+        'submmit' => '送出',
     ]
 ?>
