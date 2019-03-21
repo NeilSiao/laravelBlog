@@ -3,7 +3,7 @@
 {{Session::forget('intended')}}
 <section>
         <div class="header bg-full bg-cover bg-fixed d-flex justify-content-center align-items-center">
-                <div class="text-center text-white" style="position:absolute; top:30%;">
+                <div class="text-center text-white type_block" >
                 <h3 id="typeit" ></h3>
 
                 <a href="register" class="btn btn-outline-warning">@lang('view.join')</a>

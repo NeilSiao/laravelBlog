@@ -30,3 +30,8 @@
   }
 }
 
+.type_block {
+  position: relative;
+  top: -180px;
+}
+
