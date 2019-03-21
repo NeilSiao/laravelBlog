@@ -35,24 +35,40 @@ function sendForm () {
         'content-type': 'multipart/form-data'
       }
     };
-
+var redirectUrl = '';
     axios.post('/blogPost/Post', data, config)
       .then(function (res) {
-        notice.style.display = "block";
+       /*  notice.style.display = "block";
         notice.classList.remove('alert-danger');
-        notice.classList.add('alert-success');
-        notice.innerHTML = res.data;
+        notice.classList.add('alert-success'); */
+        /* notice.innerHTML = res.data; */
+        redirectUrl = res.data;
         progress.value = hasFile ? 100 : 0;
         percent.innerHTML = hasFile ? 100 + '%' : 0 + '%';
         console.log(res);
+        window.location = redirectUrl;
       })
       .catch(function (err) {
-        notice.classList.remove('alert-success');
+       /*  notice.classList.remove('alert-success');
         notice.classList.add('alert-danger');
-        notice.style.display = "block";
-        notice.innerHTML = err.message;
+        notice.style.display = "block"; */
+        
+        let title_err = document.getElementById('title_err');
+        let content_err = document.getElementById('content_err');
+
+        let msg = err.response.data.errors;
+        console.log(err.response);
+       if(msg.title !== undefined){
+         title_err.innerHTML = msg.title;
+       }
+       console.log('title:' + msg.title );
+       if(msg.content !== undefined){
+         content_err.innerHTML += msg.content;
+       }
+      
        /*  output.className = 'container text-danger';
         output.innerHTML = err.message; */
+       
       })
       .then(function (){
         $("#notice").delay(5000).fadeOut();

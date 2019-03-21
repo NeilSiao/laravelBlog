@@ -72,8 +72,7 @@
         <div class="form-group mt-4">
                 <label for="comment">@lang('view.commentArea')</label>
                 <textarea name="comment" id="comment_area" cols="12" rows="5" class="form-control mr-4"></textarea>
-                <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">@lang('view.submmit')
-                )</button>
+                <button onclick="sendComment({{$post->id}})" class="btn btn-primary btn-lg float-right mr-4 mt-2">@lang('view.submit')</button>
         @endAuth
         @guest
         <div class="comments mt-4 ml-2">
