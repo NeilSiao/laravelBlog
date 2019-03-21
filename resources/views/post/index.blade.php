@@ -46,20 +46,18 @@
                     </div>
                     <div class="right"> 
                     <div class="user_desc_top">
-                    <h5>
                         <span>
                             {{$post->user->name}}
                             <a href="/profile/{{$post->user->id}}" class="icon-home3"></a>
-                            </span> 
-                        </h5>
+                        </span> 
                     </div>
                 <div class="post_content">
-                        <h5 class="title">{{$post->title}}</h5>  
+                    <span class="title">{{$post->title}}</span>  
                     <a class="content"  href="/blogPost/Post/{{$post->id}}">
                         {!!$post->content!!}
                     </a>
-                    <small id="short_tag" class="post_time"> {{$post->created_at}} </small>
                 </div>
+                <small id="short_tag" class="post_time"> {{$post->created_at}} </small>
             </div>
                 </div>
         </div>
