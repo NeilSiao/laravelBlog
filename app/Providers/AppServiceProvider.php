@@ -28,7 +28,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-       
+        \Cloudinary::config(array(
+            "cloud_name" => "dzjdn589g",
+            "api_key" => env("CLOUD_IMG_KEY","913728663371981"),
+            "api_secret" => env("CLOUD_IMG_SECRETE", "YdkY6SmwMXswvXpgjfjG9dCik6A")
+        ));
       if(env('APP_ENV') != 'local'){
         $url->forceScheme('https');
      }

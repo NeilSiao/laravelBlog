@@ -20,11 +20,7 @@ class PostController extends Controller
 
         $this->middleware('auth',['except' => ['index', 'show']]);
 
-            \Cloudinary::config(array(
-            "cloud_name" => "dzjdn589g",
-            "api_key" => "913728663371981",
-            "api_secret" => "YdkY6SmwMXswvXpgjfjG9dCik6A"
-            ));
+           
     }
 
     /**

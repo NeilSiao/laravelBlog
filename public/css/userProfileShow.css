@@ -13,6 +13,7 @@ body {
   box-shadow: #e6e6e6 5px 5px 15px;
   border: 1px solid #e6e6e6;
   width: 380px;
+  text-align: center;
   padding: 15px;
 }
 
@@ -25,10 +26,6 @@ body {
 .img_size {
   width: 100%;
   border-radius: 10%;
-}
-
-.text-align-center {
-  text-align: center;
 }
 
 .bottom_border {

@@ -13,13 +13,19 @@
             <h3>
                 @if(strlen($user->byword) == 0)
                 <h3 class="text-align-center mt-3">User Byword</h3> 
-                <span class="byword">Apparently, this user prefers to keep an air of mystery about them</span>
+                <span class="byword">Watch your thoughts; for they become words.
+                <br> Watch your words; for they become actions.</span>
                 @else
                 <span class="byword">{{$user->byword}}</span>
                 @endif
             </h3>
+            
             <h3 class="text-align-center mt-1">User Desciption</h3>
+            @if(strlen($user->desc) ==0)
+            <span class="desc">Apparently, this user prefers to keep an air of mystery about them</span>
+            @else
             <span class="desc" >{{$user->user_desc}}</span>
+            @endif
         </section>
     </div>
 </div>
