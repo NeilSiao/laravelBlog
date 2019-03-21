@@ -11,18 +11,18 @@
         <section>
             
             <h3>
+                <h3 class="text-align-center mt-3">@lang('view.byword')</h3> 
                 @if(strlen($user->byword) == 0)
-                <h3 class="text-align-center mt-3">User Byword</h3> 
-                <span class="byword">Watch your thoughts; for they become words.
-                <br> Watch your words; for they become actions.</span>
+                <span class="byword">@lang('view.defaultByword_1')Watch your thoughts; for they become words.
+                <br> @lang('view.defaultByword_2')Watch your words; for they become actions.</span>
                 @else
                 <span class="byword">{{$user->byword}}</span>
                 @endif
             </h3>
             
-            <h3 class="text-align-center mt-1">User Desciption</h3>
+            <h3 class="text-align-center mt-1">@lang('view.userDesc')</h3>
             @if(strlen($user->desc) ==0)
-            <span class="desc">Apparently, this user prefers to keep an air of mystery about them</span>
+            <span class="desc">@lang('view.desc')Apparently, this user prefers to keep an air of mystery about them</span>
             @else
             <span class="desc" >{{$user->user_desc}}</span>
             @endif
