@@ -52,7 +52,7 @@ var redirectUrl = '';
        /*  notice.classList.remove('alert-success');
         notice.classList.add('alert-danger');
         notice.style.display = "block"; */
-        
+        alert(JSON.stringify(err, null, 4));
         let title_err = document.getElementById('title_err');
         let content_err = document.getElementById('content_err');
 
