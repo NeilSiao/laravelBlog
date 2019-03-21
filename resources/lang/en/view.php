@@ -24,5 +24,6 @@
         'userDesc' => 'User Description',
         'commentArea' => 'Comments',
         'loginToComment' => 'Login to leave a Comment',
+        'byword' => 'User Byword',
     ]
 ?>

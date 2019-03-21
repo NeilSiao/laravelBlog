@@ -25,5 +25,6 @@
         'submmit' => '送出',
         'commentArea' => '留言區',
         'loginToComment' => '留言，請登入',
+        'byword' => '名言',
     ]
 ?>
