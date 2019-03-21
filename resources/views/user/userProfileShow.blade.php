@@ -2,15 +2,24 @@
 
 @section('content')
 
-<div id="left">
+<div id="outer">
     <div class="profile_block">
         <header>
-            <img src="{{$user->user_img}}" alt=""> 
-            <h2> {{$user->name}} </h2>
+            <img class="img_size" src="{{$user->user_img}}" alt=""> 
+            <h2 class="text-align-center bottom_border"> {{$user->name}} </h2>
         </header>
         <section>
-            <h3> {{$user->byword}}</h3>
-            <p>{{$user->user_desc}}</p>
+            
+            <h3>
+                @if(strlen($user->byword) == 0)
+                <h3 class="text-align-center mt-3">User Byword</h3> 
+                <span class="byword">Apparently, this user prefers to keep an air of mystery about them</span>
+                @else
+                <span class="byword">{{$user->byword}}</span>
+                @endif
+            </h3>
+            <h3 class="text-align-center mt-1">User Desciption</h3>
+            <span class="desc" >{{$user->user_desc}}</span>
         </section>
     </div>
 </div>

@@ -99,21 +99,23 @@ body {
   border-radius: 15px;
   box-shadow: #e6e6e6 5px 5px 15px;
   overflow: hidden;
-  max-height: 280px;
-  width: 19rem;
-  overflow: hidden;
   background-color: aliceblue;
   margin: 10px;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-flow: column;
+  width: 90%;
+}
+
+#container #menu #post_logo {
+  flex: 1;
+  width: 100%;
 }
 
 #container #menu #post_logo img {
-  display: block;
-  width: 19rem;
-  height: 10rem;
+  width: 100%;
+  max-height: 200px;
 }
 
 #container #menu #post_text {
@@ -122,15 +124,14 @@ body {
   text-overflow: ellipsis;
   font-size: 1.25rem;
   text-align: center;
-  width: 19rem;
-  height: 20rem;
+  flex: 1;
+  width: 100%;
   display: flex;
   flex-flow: row;
 }
 
 #container #menu #post_text .user_img {
   width: 20%;
-  height: 100%;
   padding-right: 15px;
 }
 
@@ -143,7 +144,6 @@ body {
 
 #container #menu #post_text .right {
   width: 80%;
-  height: 100%;
   display: flex;
   flex-flow: column;
 }
@@ -155,7 +155,6 @@ body {
 }
 
 #container #menu #post_text .right .post_content {
-  height: 100%;
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -168,7 +167,6 @@ body {
 
 #container #menu #post_text .right .post_content .content {
   width: 240px;
-  height: 1.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: flex;
@@ -179,12 +177,8 @@ body {
 }
 
 #container #menu #post_text .right .post_time {
-  flex: 1;
   padding-right: 10px;
   align-self: flex-end;
-}
-
-#container #menu #post_text #short_tag {
   color: grey;
 }
 
@@ -196,6 +190,7 @@ body {
 .outer {
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-around;
+  align-content: center;
+  max-width: 450px;
 }
 

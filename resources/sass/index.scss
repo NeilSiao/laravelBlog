@@ -101,22 +101,19 @@ body {
         border-radius: 15px;
         box-shadow: #e6e6e6 5px 5px 15px;
         overflow: hidden;
-        max-height: 280px;
-        width: 19rem;
-        overflow: hidden;
         background-color: aliceblue;
         margin: 10px;
         justify-content: center;
         align-items: center;
         display: flex;
         flex-flow: column;
-
+        width: 90%;
         #post_logo {
-
+            flex: 1;
+            width: 100%;
             img {
-                display: block;
-                width: 19rem;
-                height: 10rem;
+                width: 100%;
+                max-height: 200px;
             }
         }
 
@@ -126,14 +123,14 @@ body {
             text-overflow: ellipsis;
             font-size: 1.25rem;
             text-align: center;
-            width: 19rem;
-            height: 20rem;
+            flex: 1;
+            width: 100%;
+            
             display: flex;
             flex-flow: row;
 
             .user_img {
                 width: 20%;
-                height: 100%;
                 padding-right: 15px;
 
                 img {
@@ -146,7 +143,6 @@ body {
 
             .right {
                 width: 80%;
-                height: 100%;
                 display: flex;
                 flex-flow: column;
 
@@ -156,8 +152,7 @@ body {
                     justify-content: flex-start;
                 }
 
-                .post_content {
-                    height: 100%;
+                .post_content { 
                     width: 100%;
                     display: flex;
                     flex-flow: column;
@@ -168,7 +163,7 @@ body {
                     
                     .content{
                         width: 240px;
-                        height: 1.5rem;
+    
                         overflow: hidden;
                         text-overflow: ellipsis;
                         display: flex;
@@ -182,16 +177,11 @@ body {
                 }
 
                 .post_time {
-                    flex: 1;
                     padding-right: 10px;
                     align-self: flex-end;
+                    color: grey;
                 }
 
-            }
-
-
-            #short_tag {
-                color: grey;
             }
 
             small {
@@ -207,6 +197,7 @@ body {
 .outer {
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-around;
-    
+    align-content: center;
+    max-width: 450px;
+
 }
