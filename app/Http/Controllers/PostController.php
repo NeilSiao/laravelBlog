@@ -85,7 +85,6 @@ class PostController extends Controller
              "width" => "300",
              "height" => "200",
             )); 
-
             $post->post_img = $data['secure_url'];
         }
     
@@ -94,7 +93,7 @@ class PostController extends Controller
         $post->user_id = $user->id;
         $post->save();
        
-        return 'Post發布成功';
+        return url("blogPost/Post/{$post->id}");
         /* return redirect('/dashboard'); */
     }
 

@@ -4,7 +4,7 @@
   
   
   <div class="col-md-8 ">
-      <div id="notice" style="display:none;" class="alert"></div>
+      
     <div class="form-group">
       {{-- <form action="{{url('/blogPost/Post')}}" enctype="multipart/form-data" method="post">
         @csrf --}}
@@ -13,10 +13,12 @@
         </label>
         <a href="{{URL::previous()}}" style="float:right;" class="btn btn-warning">@lang('view.back')</a>
         <input class="form-control" name="title" id="title">
+        <span class="err" id="title_err"></span>
         <label for="" style="font-size:1.5rem;">
                     Content
         </label>
         <textarea class="form-control rounded-0" name="content" id="content" cols="30" rows="15"></textarea>
+        <span class="err" id="content_err"></span>
         <input id="file" type="file" name="image"> 
         <div></div>
         <div class="mt-2" style="display:inline-block;" >上傳進度:</div> <span id="percent">0%</span> 
@@ -24,6 +26,7 @@
         {{-- <div id="output">
         </div> --}}
         <button id="upload" onclick="sendForm()" class="btn btn-primary float-right mr-4">送出</button>
+        <div id="notice" style="display:none;" class="alert"></div>
      {{--  </form> --}}
     </div>
   </div>

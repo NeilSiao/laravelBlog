@@ -52,7 +52,7 @@
                         </span> 
                     </div>
                 <div class="post_content">
-                    <span class="title">{{$post->title}}</span>  
+                    <a href="/blogPost/Post/{{$post->id}}"><span class="title">{{$post->title}}</span></a>
                     <a class="content"  href="/blogPost/Post/{{$post->id}}">
                         {!!$post->content!!}
                     </a>
