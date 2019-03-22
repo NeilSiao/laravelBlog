@@ -94,7 +94,7 @@
 function sendComment($post_id){
     let data = editor.getData();
 
-    var user_comment = document.getElementById('user_comment');
+   /*  var user_comment = document.getElementById('user_comment'); */
 
     var content = $('#comments');
     
@@ -111,8 +111,10 @@ function sendComment($post_id){
         <small>' + comment.created_at + '</small>\
         </div>');
 
-        user_comment.value="";
-        
+        /* user_comment.value=""; */
+        //after submit clean comment
+        editor.setData('');
+
         let cmtNum = document.getElementById('commentnum');
         let tmp = Number(cmtNum.innerHTML.trim()) + 1;
         cmtNum.innerHTML = tmp;
