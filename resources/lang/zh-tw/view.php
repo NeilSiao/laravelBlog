@@ -26,5 +26,7 @@
         'commentArea' => '留言區',
         'loginToComment' => '留言，請登入',
         'byword' => '名言',
+        'desc' => '顯然的，這位使用者想要保有神祕的感覺',
+        
     ]
 ?>
