@@ -33,7 +33,7 @@ class PostController extends Controller
         //$posts = Post::with('user')->take(5)->get();
        // $post = DB::table('posts')->paginate(5);
         $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
-
+        $post->setPath(''); //use relative route;
         if(Session::has('latest')){
             $latest = Session::get('latest');
         }else{    
