@@ -191,6 +191,6 @@ body {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
-  max-width: 450px;
+  width: 450px;
 }
 
