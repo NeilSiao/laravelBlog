@@ -25,7 +25,7 @@
                 <label id="file" for="image">@lang('view.userPhoto')</label>
                 <input id="image" name="image" class="form-control-file mb-2" type="file">
             </div>
-            <input type="submit" style="float:right; position:relative; top:-38px;" value="@lang('view.submmit')">
+            <input type="submit" style="float:right; position:relative; top:-38px;" value="@lang('view.submit')">
     </form>
     </div>
 @endsection
