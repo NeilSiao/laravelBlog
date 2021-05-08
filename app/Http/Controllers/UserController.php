@@ -29,17 +29,18 @@ class UserController extends Controller
         if($request->hasfile('image')){
             $image = $request->file('image');
             $path = $image->getRealPath();
-           /*  \Cloudinary::config(array(
-                "cloud_name" => "dzjdn589g",
-                "api_key" => env("Cloud_Img_key","913728663371981"),
-                "api_secret" => env("Cloud_Img_screte", "YdkY6SmwMXswvXpgjfjG9dCik6A")
-            )); */
-            
-             $data = \Cloudinary\Uploader::upload($path, array(
-                 "folder" => "posts_img/",
-                 "width" => "300",
-                 "height" => "200",
-                )); 
+            \Log::info($path);
+            try {
+                $data = \Cloudinary\Uploader::upload($path, array(
+                    "folder" => "posts_img/",
+                    "width" => "300",
+                    "height" => "200",
+                   ));
+            } catch (\Throwable $th) {
+                \Log::error("upload images Failed: " . $th);
+            }
+           
+            \Log::info($data); 
             $user->user_img = $data['secure_url'];
         }
         $user->save();

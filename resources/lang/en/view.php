@@ -27,6 +27,6 @@
         'byword' => 'User Byword',
         'desc' => 'Apparently, this user prefers to keep an air of mystery about them',
         'defaultByword_1' => 'Watch your thoughts; for they become words.',
-        'view.defaultByword_2' => 'Watch your words; for they become actions.',
+        'defaultByword_2' => 'Watch your words; for they become actions.',
     ]
 ?>
