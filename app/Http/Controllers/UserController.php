@@ -29,7 +29,7 @@ class UserController extends Controller
         if($request->hasfile('image')){
             $image = $request->file('image');
             $path = $image->getRealPath();
-            \Log::info($path);
+            \Log::debug($path);
             try {
                 $data = \Cloudinary\Uploader::upload($path, array(
                     "folder" => "posts_img/",
@@ -40,7 +40,7 @@ class UserController extends Controller
                 \Log::error("upload images Failed: " . $th);
             }
            
-            \Log::info($data); 
+            \Log::debug($data); 
             $user->user_img = $data['secure_url'];
         }
         $user->save();
