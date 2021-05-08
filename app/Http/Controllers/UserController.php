@@ -19,6 +19,10 @@ class UserController extends Controller
     public function userProfile(Request $requset)
     {
         $user = Auth::user();
+        if ($user == null) {
+            return back();
+        }
+
         return view('user.userProfileEdit')->with(array('user' => $user));
     }
 
