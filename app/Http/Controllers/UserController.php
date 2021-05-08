@@ -39,12 +39,12 @@ class UserController extends Controller
             } catch (\Throwable $th) {
                 \Log::error("upload images Failed: " . $th);
             }
-            \Log::debug($data);
+
             $user->user_img = $data['secure_url'];
         }
         $user->save();
 
-        // return redirect('/dashboard');
+        return redirect('/dashboard');
     }
 
     public function show($user_id)

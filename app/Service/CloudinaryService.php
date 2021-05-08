@@ -17,7 +17,7 @@ class CloudinaryService
     {
         $path   = $file->getRealPath();
         $option = [
-            'folder' => 'arrange_student_avatar',
+            'folder' => 'posts_img',
             'width'  => '300',
             'height' => '200',
         ];
