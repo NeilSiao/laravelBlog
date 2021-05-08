@@ -1,6 +1,8 @@
 <?php
 $DATABASE_URL = parse_url(getenv("DATABASE_URL"));
 
+$DATABASE_URL = parse_url(env("DATABASE_URL", 'empty'));
+
 return [
 
     /*
@@ -70,7 +72,7 @@ return [
             'engine'         => null,
         ],
 
-        'pgsql' => [
+        'default_pgsql' => [
             'driver' => 'pgsql',
             'host' => $DATABASE_URL['host'],
             'port' => $DATABASE_URL['port'],
@@ -84,15 +86,29 @@ return [
             'sslmode'        => 'prefer',
         ],
 
-        'sqlsrv'    => [
-            'driver'         => 'sqlsrv',
-            'host'           => env('DB_HOST', 'localhost'),
-            'port'           => env('DB_PORT', '1433'),
-            'database'       => env('DB_DATABASE', 'forge'),
-            'username'       => env('DB_USERNAME', 'forge'),
-            'password'       => env('DB_PASSWORD', ''),
-            'charset'        => 'utf8',
-            'prefix'         => '',
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'host' => $DATABASE_URL['host'],
+            'port' => $DATABASE_URL['port'],
+            'database' => ltrim($DATABASE_URL['path'], "/"),
+            'username' => $DATABASE_URL['user'],
+            'password' => $DATABASE_URL['pass'],
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'sqlsrv' => [
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '1433'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
             'prefix_indexes' => true,
         ],
 
