@@ -7,7 +7,6 @@ use App\Http\Requests\PostStoreRequest;
 use App\Post;
 use App\Service\CloudinaryService;
 use App\User;
-use Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -129,7 +128,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(PostStoreRequest $request, $post_id)
+    public function update(PostStoreRequest $request, $post_id, CloudinaryService $cloudService)
     {
 
         $user = Auth::user();
@@ -142,13 +141,8 @@ class PostController extends Controller
                 $content   = $validated['content'];
 
                 if ($request->hasFile('image') && $validated['image']->isValid()) {
-                    $image = $validated['image'];
-                    $path  = $image->getRealPath();
-                    $data  = \Cloudinary\Uploader::upload($path, array(
-                        "folder" => "posts_img/",
-                        "width"  => "300",
-                        "height" => "200",
-                    ));
+                    $image          = $validated['image'];
+                    $data           = $cloudService->saveImgToCloud($image);
                     $post->post_img = $data['secure_url'];
                 }
                 $post->title   = $title;
