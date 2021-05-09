@@ -1,0 +1,253 @@
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #f1f3f5;
+}
+
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 779px) {
+  #container {
+    margin: 15px;
+  }
+}
+
+#container #aside {
+  width: 20rem;
+  height: 100%;
+  margin-right: 10px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 779px) {
+  #container #aside {
+    margin: 15px;
+    display: none;
+  }
+}
+
+#container #aside ul {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#container #aside ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  list-style-type: none;
+  padding: 10px;
+}
+
+@media screen and (max-width: 736px) {
+  #container #aside ul li {
+    padding: 0;
+  }
+}
+
+#container #aside ul li img {
+  width: 40px;
+  height: 40px;
+  line-height: 100%;
+  border-radius: 100%;
+}
+
+#container #aside ul li #img_logo {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+#container #aside ul li #news {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px -45px;
+  height: 100%;
+}
+
+#container #aside ul li #news a {
+  width: 120px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#container #aside ul li #news span {
+  font-size: 13px;
+}
+
+#container #aside ul li #news span::after {
+  content: "-";
+  margin: 0 2px 0 2px;
+}
+
+#container #aside ul li #news small {
+  font-size: 10px;
+}
+
+#container #menu {
+  border: 1px solid #b3b3b3;
+  border-radius: 15px;
+  -webkit-box-shadow: #e6e6e6 5px 5px 15px;
+          box-shadow: #e6e6e6 5px 5px 15px;
+  overflow: hidden;
+  background-color: aliceblue;
+  margin: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 90%;
+}
+
+#container #menu #post_logo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+}
+
+#container #menu #post_logo img {
+  width: 100%;
+  max-height: 200px;
+}
+
+#container #menu #post_text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.25rem;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+#container #menu #post_text .user_img {
+  width: 20%;
+  padding-right: 15px;
+}
+
+#container #menu #post_text .user_img img {
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+#container #menu #post_text .right {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+#container #menu #post_text .right .user_desc_top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#container #menu #post_text .right .post_content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#container #menu #post_text .right .post_content .title {
+  margin-top: 10px;
+}
+
+#container #menu #post_text .right .post_content .content {
+  width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#container #menu #post_text .right .post_content .content > * {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+#container #menu #post_text .right .post_time {
+  padding-right: 10px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: grey;
+}
+
+#container #menu #post_text small {
+  font-size: 0.875rem;
+  display: block;
+}
+
+.outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 450px;
+}
+/*# sourceMappingURL=index.css.map */

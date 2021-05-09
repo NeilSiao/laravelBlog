@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="container d-flex justify-content-center align-items-center mt-4" style="flex-flow:column;">
+        @include('components.alert')
         <label for="">@lang('view.userPhoto')</label>
         <img src="{{$user->user_img}}" alt="" style="width:150px; height:150px; border-radius:10%;">
         

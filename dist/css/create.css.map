@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACA,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "../../resources/sass/create.scss"
+    ],
+    "names": [],
+    "file": "create.css"
+}

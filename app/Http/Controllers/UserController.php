@@ -35,20 +35,23 @@ class UserController extends Controller
         $user->user_desc = $request->input('user_desc');
         $user->byword    = $request->input('byword');
 
+        $validator = \Validator::make($request->all(), [
+            'image' => 'max:6000',
+        ]);
+        if ($validator->fails()) {
+            session()->flash('error', 'Uploaded File excceed 6M!');
+            return back();
+        }
+
         if ($request->hasfile('image')) {
-            $image = $request->file('image');
-
-            try {
-                $data = $cloudService->saveImgToCloud($image);
-            } catch (\Throwable $th) {
-                \Log::error("upload images Failed: " . $th);
-            }
-
+            $image          = $request->file('image');
+            $data           = $cloudService->saveImgToCloud($image);
             $user->user_img = $data['secure_url'];
         }
         $user->save();
 
-        return redirect('/dashboard');
+        session()->flash('msg', 'Update Success');
+        return redirect()->route('userProfile');
     }
 
     public function show($user_id)
