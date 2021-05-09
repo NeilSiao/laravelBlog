@@ -36,10 +36,14 @@ class UserController extends Controller
         $user->byword    = $request->input('byword');
 
         $validator = \Validator::make($request->all(), [
-            'image' => 'max:6000',
+            'image' => 'max:6000|mimes:jpeg,png,jpg,gif,svg,bmp',
+        ], $message = [
+            'image.mimes' => 'File must be a image',
+            'image.max'   => 'Uploaded File excceed 6M!',
         ]);
         if ($validator->fails()) {
-            session()->flash('error', 'Uploaded File excceed 6M!');
+            $errors = $validator->messages()->all();
+            session()->flash('error', $errors);
             return back();
         }
 

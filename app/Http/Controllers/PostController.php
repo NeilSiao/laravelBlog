@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Http\Requests\PostStoreRequest;
 use App\Post;
+use App\Service\CloudinaryService;
 use App\User;
 use Cloudinary;
-use App\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\PostStoreRequest;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
 
-        $this->middleware('auth',['except' => ['index', 'show']]);
-
-           
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     /**
@@ -31,15 +29,15 @@ class PostController extends Controller
     public function index()
     {
         //$posts = Post::with('user')->take(5)->get();
-       // $post = DB::table('posts')->paginate(5);
+        // $post = DB::table('posts')->paginate(5);
         $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(3);
-       // $post->setPath(''); //use relative route;
-        if(Session::has('latest')){
+        // $post->setPath(''); //use relative route;
+        if (Session::has('latest')) {
             $latest = Session::get('latest');
-        }else{    
+        } else {
             $latest = POST::orderBy('created_at', 'desc')->with('user')->take(3)->get();
         }
-        return view('post.index',['posts' => $posts, 'latest' => $latest]);
+        return view('post.index', ['posts' => $posts, 'latest' => $latest]);
         /* return view('post.index'); */
     }
 
@@ -50,9 +48,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        if(Auth::user()){
+        if (Auth::user()) {
             return view('post.create');
-        }else{
+        } else {
             return Redirect()->back();
         }
     }
@@ -64,31 +62,27 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(PostStoreRequest $request)
+    public function store(PostStoreRequest $request, CloudinaryService $cloudService)
     {
 
-        $user = Auth::user();
-        $post = new Post();
+        $user      = Auth::user();
+        $post      = new Post();
         $validated = $request->validated();
-        $title = $validated['title'];
-        $content = $validated['content'];
+        $title     = $validated['title'];
+        $content   = $validated['content'];
 
-        if($request->hasFile('image') && $validated['image']->isValid()){
-            $image = $validated['image'];
-            $path = $image->getRealPath();
-         $data = \Cloudinary\Uploader::upload($path, array(
-             "folder" => "posts_img/",
-             "width" => "300",
-             "height" => "200",
-            )); 
+        if ($request->hasFile('image') && $validated['image']->isValid()) {
+            $image          = $validated['image'];
+            $path           = $image->getRealPath();
+            $data           = $cloudService->saveImgToCloud($image);
             $post->post_img = $data['secure_url'];
         }
-    
-        $post->title = $title;
+
+        $post->title   = $title;
         $post->content = $content;
         $post->user_id = $user->id;
         $post->save();
-       
+
         return url("blogPost/Post/{$post->id}");
         /* return redirect('/dashboard'); */
     }
@@ -101,9 +95,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::with('user')->findOrFail($id);
-        $comments = Comment::with('user')->where('post_id' ,'=', $id)->get();
-        return view('post.show', ['post' => $post, 'comments' =>$comments]);
+        $post     = Post::with('user')->findOrFail($id);
+        $comments = Comment::with('user')->where('post_id', '=', $id)->get();
+        return view('post.show', ['post' => $post, 'comments' => $comments]);
     }
 
     /**
@@ -116,14 +110,14 @@ class PostController extends Controller
     {
         $post = Post::findorFail($id);
         $user = Auth::user();
-        if($post->exists()){
-            if($user->id == $post->user_id) {
+        if ($post->exists()) {
+            if ($user->id == $post->user_id) {
                 return view('post.edit')->with('post', $post);
-            }else{
+            } else {
                 return 'You are not the post\'s owner!!';
             }
-        }else{
-            return 'post can\'t be found' ;
+        } else {
+            return 'post can\'t be found';
         }
         return 'unknown problem has occur';
     }
@@ -137,39 +131,37 @@ class PostController extends Controller
      */
     public function update(PostStoreRequest $request, $post_id)
     {
-       
+
         $user = Auth::user();
         $post = Post::findorFail($post_id);
-  
-        if($post->exists()){
-            if($user->id == $post->user_id) {
+
+        if ($post->exists()) {
+            if ($user->id == $post->user_id) {
                 $validated = $request->validated();
-                $title = $validated['title'];
-                $content = $validated['content'];
-        
-                if($request->hasFile('image') && $validated['image']->isValid()){
+                $title     = $validated['title'];
+                $content   = $validated['content'];
+
+                if ($request->hasFile('image') && $validated['image']->isValid()) {
                     $image = $validated['image'];
-                    $path = $image->getRealPath();
-                    $data = \Cloudinary\Uploader::upload($path, array(
-                     "folder" => "posts_img/",
-                    "width" => "300",
-                     "height" => "200",
-                    )); 
+                    $path  = $image->getRealPath();
+                    $data  = \Cloudinary\Uploader::upload($path, array(
+                        "folder" => "posts_img/",
+                        "width"  => "300",
+                        "height" => "200",
+                    ));
                     $post->post_img = $data['secure_url'];
                 }
-                $post->title = $title;
+                $post->title   = $title;
                 $post->content = $content;
                 $post->user_id = $user->id;
                 $post->save();
                 return 'Post更新成功';
-            }else{
+            } else {
                 return 'You are not the post\'s owner!!';
             }
-        }else{
-            return 'post can\'t be found' ;
+        } else {
+            return 'post can\'t be found';
         }
-    
-        
     }
 
     /**
@@ -181,7 +173,7 @@ class PostController extends Controller
     public function destroy(Post $Post)
     {
         $user = Auth::user();
-        if($user->id == $Post->user_id){
+        if ($user->id == $Post->user_id) {
             $Post->delete();
         }
         return redirect()->back();
